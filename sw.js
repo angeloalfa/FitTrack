@@ -1,8 +1,16 @@
-const CACHE_NAME = 'fittrack-pro-v1';
-const APP_SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
+const CACHE_NAME = 'fittrack-pro-v2';
+const APP_SHELL = [
+  './',
+  './index.html',
+  './exercises.json',
+  './manifest.webmanifest',
+  './icon.svg'
+];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(APP_SHELL)).catch(() => {}));
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(c => c.addAll(APP_SHELL).catch(err => console.warn('Precache error:', err)))
+  );
   self.skipWaiting();
 });
 
@@ -17,8 +25,22 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Ignora richieste non-GET o verso CDN esterni
+  // Ignora non-GET e CDN esterni
   if (request.method !== 'GET' || url.origin !== self.location.origin) return;
+
+  // exercises.json: network-first per vedere sempre gli aggiornamenti da git
+  if (url.pathname.endsWith('/exercises.json')) {
+    event.respondWith(
+      fetch(request)
+        .then(res => {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then(c => c.put(request, copy));
+          return res;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
 
   // HTML: network-first
   if (request.headers.get('accept')?.includes('text/html')) {
@@ -34,13 +56,16 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Asset statici: stale-while-revalidate
+  // Asset e media: stale-while-revalidate
   event.respondWith(
     caches.match(request).then(cached => {
       const network = fetch(request)
         .then(res => {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then(c => c.put(request, copy));
+          // Cache anche i file media/ (gif, mp4, webm)
+          if (res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE_NAME).then(c => c.put(request, copy));
+          }
           return res;
         })
         .catch(() => cached);
