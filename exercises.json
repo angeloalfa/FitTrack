@@ -1,70 +1,102 @@
 {
-    "version": 1,
-    "updatedAt": "2026-01-15T10:00:00Z",
-    "exercises": [
-      {
-        "id": "ex-bench",
-        "name": "Panca Piana Bilanciere",
-        "category": "Petto",
-        "muscles": "Pettorali, Tricipiti, Deltoidi Anteriori",
-        "mediaUrl": "https://www.youtube.com/watch?v=rT7DgCr-3pg",
-        "instructions": "Sdraiati sulla panca, impugna il bilanciere con presa leggermente più ampia delle spalle. Abbassa il peso fino al petto e spingi verso l'alto."
-      },
-      {
-        "id": "ex-incline-db",
-        "name": "Spinte Panca Inclinata Manubri",
-        "category": "Petto",
-        "muscles": "Petto Alto, Deltoidi Anteriori",
-        "mediaUrl": "https://www.youtube.com/watch?v=8iPEnn-ltC8",
-        "instructions": "Imposta la panca a 30-45 gradi. Spingi i manubri verso l'alto estendendo le braccia senza bloccare i gomiti."
-      },
-      {
-        "id": "ex-squat",
-        "name": "Squat con Bilanciere",
-        "category": "Gambe",
-        "muscles": "Quadricipiti, Glutei, Femorali",
-        "mediaUrl": "https://www.youtube.com/watch?v=ultWZbUMPL8",
-        "instructions": "Posiziona il bilanciere sui trapezi, scendi flettendo le ginocchia tenendo la schiena dritta fino a superare il parallelo."
-      },
-      {
-        "id": "ex-deadlift",
-        "name": "Stacco da Terra (Deadlift)",
-        "category": "Dorso",
-        "muscles": "Lombari, Femorali, Glutei, Trapezi",
-        "mediaUrl": "https://www.youtube.com/watch?v=op9kVnSso6Q",
-        "instructions": "Afferra il bilanciere da terra con schiena neutra, spingi sui piedi per sollevare il peso fino all'estensione completa delle anche."
-      },
-      {
-        "id": "ex-lat",
-        "name": "Lat Machine Avanti",
-        "category": "Dorso",
-        "muscles": "Gran Dorsale, Bicipiti",
-        "mediaUrl": "https://www.youtube.com/watch?v=CAwf7n6Luuc",
-        "instructions": "Tira la barra verso la parte alta del petto aprendo le spalle e focalizzando il lavoro sulla schiena."
-      },
-      {
-        "id": "ex-ohp",
-        "name": "Military Press (Overhead Press)",
-        "category": "Spalle",
-        "muscles": "Deltoidi, Tricipiti",
-        "mediaUrl": "https://www.youtube.com/watch?v=2yjwXTZQDDI",
-        "instructions": "Da in piedi o seduto, spingi il bilanciere o i manubri sopra la testa in modo controllato."
-      },
-      {
-        "id": "ex-curl-db",
-        "name": "Curl Bicipiti con Manubri",
-        "category": "Braccia",
-        "muscles": "Bicipiti Brachiali",
-        "mediaUrl": "https://www.youtube.com/watch?v=ykJmrZ5v0Oo",
-        "instructions": "Fletti i gomiti portando i manubri verso le spalle evitando di oscillare con il busto."
-      },
-      {
-        "id": "ex-pushdown",
-        "name": "Tricep Pushdown Cavo",
-        "category": "Braccia",
-        "muscles": "Tricipiti",
-        "mediaUrl": "https://www.youtube.com/watch?v=2-LAMcpzODU",
-        "instructions": "Spingi la barra o la corda verso il basso fino alla completa estensione dei gomiti."
-      }
-    ]
-  }
+  "version": 1,
+  "updatedAt": "2026-11-04T22:38:02.621Z",
+  "exercises": [
+    {
+      "id": "ex-bench",
+      "name": "Panca Piana Bilanciere",
+      "category": "Petto",
+      "muscles": "Pettorali, Tricipiti, Deltoidi Anteriori",
+      "mediaUrl": "https://api.smartworkout.app/asset/video/30f3160a-3a57-426a-a3b9-4eed573310f8.mp4",
+      "instructions": "Sdraiati sulla panca, impugna il bilanciere con presa leggermente più ampia delle spalle. Abbassa il peso fino al petto e spingi verso l'alto."
+    },
+    {
+      "id": "ex-incline-db",
+      "name": "Spinte Panca Inclinata Manubri",
+      "category": "Petto",
+      "muscles": "Petto Alto, Deltoidi Anteriori",
+      "mediaUrl": "https://www.youtube.com/watch?v=8iPEnn-ltC8",
+      "instructions": "Imposta la panca a 30-45 gradi. Spingi i manubri verso l'alto estendendo le braccia senza bloccare i gomiti."
+    },
+    {
+      "id": "ex-deadlift",
+      "name": "Stacco da Terra",
+      "category": "Dorso",
+      "muscles": "Lombari, Femorali, Glutei, Trapezi",
+      "mediaUrl": "https://www.youtube.com/watch?v=op9kVnSso6Q",
+      "instructions": "Afferra il bilanciere da terra con schiena neutra, spingi sui piedi per sollevare il peso fino all'estensione completa delle anche."
+    },
+    {
+      "id": "ex-lat",
+      "name": "Lat Machine Avanti",
+      "category": "Dorso",
+      "muscles": "Gran Dorsale, Bicipiti",
+      "mediaUrl": "https://www.youtube.com/watch?v=CAwf7n6Luuc",
+      "instructions": "Tira la barra verso la parte alta del petto aprendo le spalle e focalizzando il lavoro sulla schiena."
+    },
+    {
+      "id": "ex-ohp",
+      "name": "Military Press",
+      "category": "Spalle",
+      "muscles": "Deltoidi, Tricipiti",
+      "mediaUrl": "https://www.youtube.com/watch?v=2yjwXTZQDDI",
+      "instructions": "Da in piedi o seduto, spingi il bilanciere o i manubri sopra la testa in modo controllato."
+    },
+    {
+      "id": "ex-curl-db",
+      "name": "Curl Bicipiti con Manubri",
+      "category": "Braccia",
+      "muscles": "Bicipiti Brachiali",
+      "mediaUrl": "https://www.youtube.com/watch?v=ykJmrZ5v0Oo",
+      "instructions": "Fletti i gomiti portando i manubri verso le spalle evitando di oscillare con il busto."
+    },
+    {
+      "id": "ex-pushdown",
+      "name": "Tricipiti Pushdown Cavo",
+      "category": "Braccia",
+      "muscles": "Tricipiti",
+      "mediaUrl": "https://www.youtube.com/watch?v=2-LAMcpzODU",
+      "instructions": "Spingi la barra o la corda verso il basso fino alla completa estensione dei gomiti."
+    },
+    {
+      "id": "ex-alzate-lat",
+      "name": "Alzate laterali",
+      "category": "Spalle",
+      "muscles": "spalle",
+      "mediaUrl": "https://api.smartworkout.app/asset/video/62ca1060-9268-4fa5-a167-0bc79fa10a3a.mp4",
+      "instructions": "Mantieni le braccia leggermente piegate ai gomiti e mantieni questo angolo durante l'esercizio."
+    },
+    {
+      "id": "ex-pressa",
+      "name": "Pressa orizzontale per le gambe",
+      "category": "Gambe",
+      "muscles": "Quadricipiti",
+      "mediaUrl": "https://api.smartworkout.app/asset/video/1e80d7cd-efae-4b40-8254-1e57e48e9a53.mp4",
+      "instructions": "Appoggia i piedi interi al centro della pedana, alla larghezza delle anche, punte verso l'alto o un po' in fuori, talloni giù."
+    },
+    {
+      "id": "ex-leg",
+      "name": "Leg Extension Machine",
+      "category": "Gambe",
+      "muscles": "Quadricipiti",
+      "mediaUrl": "https://api.smartworkout.app/asset/video/10ec53eb-72f0-4335-b81c-8302db893bed.mp4",
+      "instructions": "Siediti contro lo schienale e posiziona i piedi sotto la barra imbottita, assicurandoti che si appoggi appena sopra le caviglie."
+    },
+    {
+      "id": "ex-dragon",
+      "name": "Dragon flag",
+      "category": "Core",
+      "muscles": "Addominali",
+      "mediaUrl": "src=\"https://api.smartworkout.app/asset/video/1b5c4294-0a50-4e62-b394-a89ceab6b6dc.mp4\"",
+      "instructions": "Coinvolgi il core e solleva le gambe e i fianchi dalla panca, mantenendo il corpo dritto dalle spalle ai piedi."
+    },
+    {
+      "id": "ex-add",
+      "name": "Sollevamento delle ginocchia al petto in sospensione",
+      "category": "Core",
+      "muscles": "Addominali",
+      "mediaUrl": "src=\"https://api.smartworkout.app/asset/video/baeb8def-dfaa-46a9-998a-c6129cf21463.mp4\"",
+      "instructions": "Presa prona, palmi in avanti, mani poco più larghe delle spalle e pollici chiusi attorno alla sbarra.\nAppenditi a braccia tese e porta le spalle leggermente in basso, lontano dalle orecchie: non devono salire né restare del tutto molli."
+    }
+  ]
+}

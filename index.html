@@ -250,11 +250,28 @@
                         <input type="file" accept=".json" onchange="restoreBackupFromFile(event)" class="hidden">
                     </label>
                     <button onclick="exportHistoryCSV()" class="bg-slate-800 border border-slate-700 text-slate-200 py-2 rounded-xl text-xs font-semibold touch-manipulation col-span-2">Esporta Cronologia CSV</button>
+                
                 </div>
                 <p class="text-[10px] text-slate-500">Il backup è un file JSON salvato sul dispositivo. Conservalo per ripristinare i dati su un altro telefono.</p>
                 <button onclick="resetDefaultExercises()" class="w-full bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 py-2 rounded-xl text-xs font-semibold transition touch-manipulation">
                     Ripristina Esercizi & Schede Default
                 </button>
+            </div>
+
+            <!-- Salva exercises.json -->
+            <div class="bg-slate-900 border border-emerald-500/30 p-4 rounded-2xl space-y-3">
+                <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
+                    <i data-lucide="save" class="w-4 h-4 text-emerald-400"></i> Salva su exercises.json
+                </h3>
+                <p class="text-[11px] text-slate-400">
+                    Apre il selettore file e scrive <strong>tutti</strong> gli esercizi (libreria + custom) direttamente in <code class="text-emerald-400">exercises.json</code>. Funziona solo servendo l'app da <code>http://localhost</code> con Chrome/Edge.
+                </p>
+                <button onclick="saveExercisesToJsonFile()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 touch-manipulation">
+                    <i data-lucide="save" class="w-4 h-4"></i> Salva exercises.json sul disco
+                </button>
+                <div id="last-json-save-info" class="hidden text-[10px] text-emerald-400 pt-1 border-t border-slate-800">
+                    Ultimo salvataggio: <span id="last-json-save-time">—</span>
+                </div>
             </div>
         </section>
     </main>
@@ -1439,6 +1456,59 @@
             }, "Ripristina", true);
         }
         window.resetDefaultExercises = resetDefaultExercises;
+
+        // ============================================================
+        // SALVA exercises.json SUL DISCO (solo localhost + Chrome/Edge)
+        // ============================================================
+        async function saveExercisesToJsonFile() {
+            if (!('showSaveFilePicker' in window)) {
+                showFormNotice('Funzione non supportata. Apri l\'app da http://localhost con Chrome o Edge.');
+                return;
+            }
+
+            // Rimuove il flag _custom (non serve in exercises.json)
+            const cleanedExercises = exercises.map(e => {
+                const { _custom, ...rest } = e;
+                return rest;
+            });
+
+            const data = {
+                version: 1,
+                updatedAt: new Date().toISOString(),
+                exercises: cleanedExercises
+            };
+
+            const json = JSON.stringify(data, null, 2);
+            const customCount = exercises.filter(e => e._custom).length;
+
+            try {
+                const handle = await window.showSaveFilePicker({
+                    suggestedName: 'exercises.json',
+                    types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }]
+                });
+                const writable = await handle.createWritable();
+                await writable.write(json);
+                await writable.close();
+
+                // Aggiorna il timestamp di versione locale (per far vedere il toast)
+                localStorage.setItem('fittrack_library_version', data.updatedAt);
+
+                // UI: mostra info ultimo salvataggio
+                const info = document.getElementById('last-json-save-info');
+                const timeEl = document.getElementById('last-json-save-time');
+                if (info) info.classList.remove('hidden');
+                if (timeEl) timeEl.innerText = new Date().toLocaleString('it-IT');
+
+                showFormNotice(`exercises.json salvato (${cleanedExercises.length} esercizi, di cui ${customCount} custom) ✅`);
+                console.log('✅ exercises.json salvato. Ora fai: git add exercises.json && git commit -m "aggiorna esercizi" && git push');
+
+            } catch (err) {
+                if (err.name === 'AbortError') return; // utente ha annullato
+                showFormNotice('Errore salvataggio: ' + err.message);
+                console.error(err);
+            }
+        }
+        window.saveExercisesToJsonFile = saveExercisesToJsonFile;
     </script>
 </body>
 </html>
