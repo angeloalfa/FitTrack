@@ -1,0 +1,18 @@
+# Local History (estensioni VS Code / IDE)
+.history/
+
+# Log di sistema e file temporanei
+*.log
+.DS_Store
+Thumbs.db
+
+# Cartelle delle dipendenze (aggiungi/rimuovi in base al tuo linguaggio)
+node_modules/
+__pycache__/
+.venv/
+bin/
+obj/
+
+# File di configurazione locale / Segreti
+.env
+.env.local
