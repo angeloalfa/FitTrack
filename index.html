@@ -1164,10 +1164,16 @@
         window.filterCategory = filterCategory;
 
         function openCustomExerciseModal() {
-            document.getElementById('new-ex-name').value = '';
-            document.getElementById('new-ex-muscles').value = '';
-            document.getElementById('new-ex-media').value = '';
-            document.getElementById('new-ex-instructions').value = '';
+            const nameEl = document.getElementById('new-ex-name');
+            if (nameEl) nameEl.value = '';
+            const musclesEl = document.getElementById('new-ex-muscles');
+            if (musclesEl) musclesEl.value = '';
+            const mediaEl = document.getElementById('new-ex-media');
+            if (mediaEl) mediaEl.value = '';
+            const instrEl = document.getElementById('new-ex-instructions');
+            if (instrEl) instrEl.value = '';
+            const catEl = document.getElementById('new-ex-category');
+            if (catEl) catEl.value = 'Petto';
             document.getElementById('modal-custom-exercise').classList.remove('hidden');
         }
         window.openCustomExerciseModal = openCustomExerciseModal;
