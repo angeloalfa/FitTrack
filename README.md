@@ -6,7 +6,7 @@ Workout tracker PWA per Android/iOS. Funziona offline, salva i dati localmente e
 
 1. Carica tutti i file in questo repo
 2. Settings → Pages → Source: `main` branch, `/ (root)`
-3. Apri `https://TUO-USERNAME.github.io/NOME-REPO/` da Chrome Android
+3. Apri `https://angeloalfa.github.io/FitTrack/` da Chrome Android
 4. Menu ⋮ → "Installa app"
 
 ## File
